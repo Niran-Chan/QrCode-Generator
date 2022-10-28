@@ -12,11 +12,11 @@ path = os.getcwd()
 def generate(in_file):
     
     f_in = open(in_file,"r")
-    
     exist = False
     dirs = os.listdir(path)
     for _ in dirs:
-        if( in_file.strip('./') == _  ):
+
+        if( in_file.strip('./').strip('.txt') == _  ):
             exist = True
     
     if(exist == False):
