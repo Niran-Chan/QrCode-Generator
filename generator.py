@@ -37,7 +37,7 @@ def generate(in_file):
         qr.add_data(_)
         qr.make(fit=True)
         img = qr.make_image(fill_color="black",back_color="white")
-        img.save(_ + ".jpg")
+        img.save(_.strip("\n") + ".jpg")
         img.show()
         
     f_in.close()
