@@ -23,22 +23,15 @@ def generate(in_file):
         os.mkdir(path + in_file.strip('.txt'))
 
     os.chdir(path + in_file.strip('.txt'))
-    #Initialise QR Class
-    qr = qrcode.QRCode(
-        version=1,
-        error_correction=qrcode.constants.ERROR_CORRECT_L,
-        box_size=10,
-        border=4,
-    )
     #Open file
-
-
     for _ in f_in:
+	#Initialise QR Class
+        qr=qrcode.QRCode(version=1,error_correction=qrcode.constants.ERROR_CORRECT_L,box_size=10,border=4)
         qr.add_data(_)
         qr.make(fit=True)
         img = qr.make_image(fill_color="black",back_color="white")
         img.save(_.strip("\n") + ".jpg")
-        img.show()
+       #img.show()
         
     f_in.close()
     return
